@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-night: #0C1322;
+  --color-night-2: #101A2E;
+  --color-night-line: #22314F;
+  --color-nila: #26385F;
+  --color-nila-bright: #5B7FCB;
+  --color-brass: #CBA05A;
+  --color-paper: #F7F4EE;
+  --color-paper-2: #EDE8DD;
+  --color-ink: #191B21;
+  --color-ink-soft: #474A54;
+  --color-muted: #7B7A74;
+  --color-line: #E4DED2;
+
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* latar grid bercahaya untuk hero */
+.grid-glow {
+  background-image:
+    linear-gradient(var(--color-night-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-night-line) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 30% 40%, #000 40%, transparent 100%);
+          mask-image: radial-gradient(ellipse 80% 60% at 30% 40%, #000 40%, transparent 100%);
+  opacity: .18;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
 }
