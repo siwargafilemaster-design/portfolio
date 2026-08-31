@@ -3,7 +3,7 @@ export default function TopBar() {
     <div className="sticky top-0 z-30 border-b border-night-line bg-night/80 backdrop-blur">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <div className="font-display text-lg font-extrabold text-white">
-          Edi<span className="text-brass">.</span>Susilo
+          Edi<span className="text-brass">.Susilo</span>
         </div>
         <nav className="hidden gap-6 sm:flex">
           <a href="#projects" className="text-sm text-[#AEB9D0] hover:text-white">Projects</a>

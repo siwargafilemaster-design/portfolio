@@ -4,7 +4,7 @@ import PhoneFrame from './PhoneFrame'
 export default function ProjectCard({ p }: { p: Project }) {
   return (
     <div className="flex flex-col items-center rounded-2xl border border-line bg-white p-6 text-center transition hover:-translate-y-1 hover:shadow-xl">
-      <PhoneFrame sub={p.usage} />
+      <PhoneFrame sub={p.usage} videoUrl={p.videoUrl} />
       <h3 className="mt-4 font-display text-lg font-bold">{p.title}</h3>
       <p className="mt-2 text-sm text-ink-soft">{p.description}</p>
       <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-medium text-nila">

@@ -6,7 +6,7 @@ export default function FeaturedProject({ p }: { p: Project }) {
     <div className="relative mb-5 grid grid-cols-1 items-center gap-7 overflow-hidden rounded-2xl border border-line bg-white p-7 sm:grid-cols-[auto_1fr]">
       <div className="absolute left-0 top-0 h-full w-1 bg-brass" />
       <div className="mx-auto sm:mx-0">
-        <PhoneFrame size="lg" sub={p.usage} />
+        <PhoneFrame size="lg" sub={p.usage} videoUrl={p.videoUrl} />
       </div>
       
       <div className="text-center sm:text-left">

@@ -2,7 +2,8 @@ import { groq } from 'next-sanity'
 
 export const projectsQuery = groq`*[_type == "project"] | order(order asc){
   _id, title, featured, order, description, usage,
-  role, tech, liveUrl, githubUrl, isPrivate
+  role, tech, liveUrl, githubUrl, isPrivate,
+  "videoUrl": video.asset->url
 }`
 
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{

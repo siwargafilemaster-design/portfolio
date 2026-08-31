@@ -10,6 +10,7 @@ export type Project = {
   liveUrl?: string
   githubUrl?: string
   isPrivate?: boolean
+  videoUrl?: string
 }
 
 export type SkillGroup = {

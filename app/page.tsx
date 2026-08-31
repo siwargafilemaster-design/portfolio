@@ -7,6 +7,7 @@ import Projects from '@/components/Projects'
 import About from '@/components/About'
 import Skills from '@/components/Skills'
 import Contact from '@/components/Contact'
+import Reveal from '@/components/Reveal'
 
 export const revalidate = 60
 
@@ -26,15 +27,17 @@ export default async function Home() {
         openToWork={settings?.openToWork}
         photoUrl={settings?.photoUrl}
       />
-      <Projects projects={projects} />
-      <About intro={settings?.aboutIntro} pull={settings?.aboutPull} outro={settings?.aboutOutro} />
-      <Skills groups={settings?.skills} />
-      <Contact
-        email={settings?.email}
-        github={settings?.github}
-        linkedin={settings?.linkedin}
-        location={settings?.location}
-      />
+      <Reveal><Projects projects={projects} /></Reveal>
+      <Reveal><About intro={settings?.aboutIntro} pull={settings?.aboutPull} outro={settings?.aboutOutro} /></Reveal>
+      <Reveal><Skills groups={settings?.skills} /></Reveal>
+      <Reveal>
+        <Contact
+          email={settings?.email}
+          github={settings?.github}
+          linkedin={settings?.linkedin}
+          location={settings?.location}
+        />
+      </Reveal>
     </>
   )
 }
