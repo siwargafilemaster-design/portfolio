@@ -15,8 +15,8 @@ export default function PhoneFrame({
         <div className="flex h-11 w-11 items-center justify-center rounded-full border border-brass bg-brass/15">
           <span className="ml-0.5 h-0 w-0 border-y-[7px] border-l-[11px] border-y-transparent border-l-brass" />
         </div>
-        <div className="font-mono text-[0.6rem] uppercase tracking-widest text-[#8ba0c8]">{label}</div>
-        {sub && <div className="font-mono text-[0.54rem] text-[#5b6d8f]">{sub}</div>}
+        <div className="px-3 text-center font-mono text-[0.6rem] uppercase tracking-widest text-[#8ba0c8]">{label}</div>
+        {sub && <div className="px-3 text-center font-mono text-[0.54rem] text-[#5b6d8f]">{sub}</div>}
       </div>
     </div>
   )
