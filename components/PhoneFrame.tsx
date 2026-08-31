@@ -79,16 +79,15 @@ export default function PhoneFrame({
 
       {open && hasVideo && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          className="fixed inset-x-0 top-0 z-50 flex h-[100dvh] items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
           onClick={() => setOpen(false)}
         >
           <div className="relative" onClick={(e) => e.stopPropagation()}>
             <video
               src={videoUrl}
-              className="max-h-[85vh] w-auto rounded-2xl border border-night-line shadow-2xl"
+              className="max-h-[85dvh] w-auto max-w-full rounded-2xl border border-night-line shadow-2xl"
               controls
               autoPlay
-              muted
               playsInline
             />
             <button
