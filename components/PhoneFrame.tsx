@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 export default function PhoneFrame({
   label = 'Demo video',
@@ -77,30 +78,32 @@ export default function PhoneFrame({
         </div>
       </div>
 
-      {open && hasVideo && (
-        <div
-          className="fixed inset-x-0 top-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
-          style={{ height: '100dvh' }}
-          onClick={() => setOpen(false)}
-        >
-          <video
-            src={videoUrl}
-            onClick={(e) => e.stopPropagation()}
-            className="rounded-2xl border border-night-line shadow-2xl"
-            style={{ maxHeight: '85dvh', maxWidth: '100%' }}
-            controls
-            autoPlay
-            playsInline
-          />
-          <button
+      {open && hasVideo && typeof document !== 'undefined' &&
+        createPortal(
+          <div
+            className="fixed inset-x-0 top-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+            style={{ height: '100dvh' }}
             onClick={() => setOpen(false)}
-            aria-label="Tutup"
-            className="fixed right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink shadow-lg"
           >
-            ✕
-          </button>
-        </div>
-      )}
+            <video
+              src={videoUrl}
+              onClick={(e) => e.stopPropagation()}
+              className="rounded-2xl border border-night-line shadow-2xl"
+              style={{ maxHeight: '85dvh', maxWidth: '100%' }}
+              controls
+              autoPlay
+              playsInline
+            />
+            <button
+              onClick={() => setOpen(false)}
+              aria-label="Tutup"
+              className="fixed right-4 top-4 z-[101] flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink shadow-lg"
+            >
+              ✕
+            </button>
+          </div>,
+          document.body
+        )}
     </>
   )
 }
