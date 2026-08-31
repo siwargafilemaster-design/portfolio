@@ -1,24 +1,19 @@
 import { client } from '@/sanity/client'
 import { projectsQuery, siteSettingsQuery } from '@/sanity/queries'
-import type { Project } from '@/sanity/types'
+import type { Project, SiteSettings } from '@/sanity/types'
 import TopBar from '@/components/TopBar'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
+import About from '@/components/About'
+import Skills from '@/components/Skills'
+import Contact from '@/components/Contact'
 
 export const revalidate = 60
-
-type Settings = {
-  name?: string
-  title?: string
-  tagline?: string
-  openToWork?: boolean
-  photoUrl?: string
-}
 
 export default async function Home() {
   const [projects, settings] = await Promise.all([
     client.fetch<Project[]>(projectsQuery),
-    client.fetch<Settings>(siteSettingsQuery),
+    client.fetch<SiteSettings>(siteSettingsQuery),
   ])
 
   return (
@@ -32,6 +27,14 @@ export default async function Home() {
         photoUrl={settings?.photoUrl}
       />
       <Projects projects={projects} />
+      <About intro={settings?.aboutIntro} pull={settings?.aboutPull} outro={settings?.aboutOutro} />
+      <Skills groups={settings?.skills} />
+      <Contact
+        email={settings?.email}
+        github={settings?.github}
+        linkedin={settings?.linkedin}
+        location={settings?.location}
+      />
     </>
   )
 }

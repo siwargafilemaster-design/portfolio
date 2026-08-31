@@ -11,3 +11,24 @@ export type Project = {
   githubUrl?: string
   isPrivate?: boolean
 }
+
+export type SkillGroup = {
+  heading?: string
+  items?: string[]
+}
+
+export type SiteSettings = {
+  name?: string
+  title?: string
+  tagline?: string
+  openToWork?: boolean
+  location?: string
+  aboutIntro?: string
+  aboutPull?: string
+  aboutOutro?: string
+  skills?: SkillGroup[]
+  email?: string
+  github?: string
+  linkedin?: string
+  photoUrl?: string
+}
