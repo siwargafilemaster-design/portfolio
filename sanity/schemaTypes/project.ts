@@ -15,7 +15,7 @@ export const project = defineType({
       description: 'contoh: In daily use · 80 households' }),
     defineField({ name: 'role', title: 'Peran saya', type: 'string' }),
     defineField({ name: 'tech', title: 'Tag teknologi', type: 'array',
-      of: [{ type: 'string' }], options: { layout: 'tags' } }),
+      of: [{ type: 'string' }], }),
     defineField({ name: 'liveUrl', title: 'Link demo live', type: 'url' }),
     defineField({ name: 'githubUrl', title: 'Link GitHub', type: 'url' }),
     defineField({ name: 'isPrivate', title: 'Privat (tanpa demo live)?',
